@@ -33,6 +33,9 @@ set(DOOR_FILES
   event-edge-detector.h
   event-edge-detector.cpp
 
+  input-edge-event.h
+  input-edge-event.cpp
+
   inputs.h
   inputs.cpp
   outputs.h

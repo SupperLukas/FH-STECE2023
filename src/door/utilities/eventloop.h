@@ -6,6 +6,7 @@ enum class EventAction
 {
     Continue,
     Quit,
+    GpioEdgeEvent
 };
 
 class InputHandler

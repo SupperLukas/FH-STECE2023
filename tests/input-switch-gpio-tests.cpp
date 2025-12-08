@@ -1,4 +1,4 @@
-#include <door/input-switch-gpio-sysfs.h>
+#include <door/input_output_switch/input/input-switch-gpio-sysfs.h>
 #include <iostream>
 #include <chrono>
 #include <thread>

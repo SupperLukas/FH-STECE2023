@@ -15,9 +15,14 @@ add_executable(
 target_link_libraries(
   door-tests
 
+  PRIVATE
   door
   utilities
   gtest_main
+
+  input_output_switch
+  motor
+  analog_stuff
 )
 add_test(
   NAME door-tests 

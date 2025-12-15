@@ -1,24 +1,9 @@
 add_executable(
-  statemachine-tests
+  door-tests
 
   door-init-tests.cpp
   door-closed-open-tests.cpp
   door-open-closed-tests.cpp
-)
-target_link_libraries(
-  statemachine-tests
-
-  door
-  utilities
-  gtest_main
-)
-add_test(
-  NAME statemachine-tests
-  COMMAND statemachine-tests
-)
-
-add_executable(
-  door-tests
 
   timespec-tests.cpp
   

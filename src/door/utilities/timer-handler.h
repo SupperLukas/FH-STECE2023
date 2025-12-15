@@ -2,15 +2,15 @@
 
 #include <sys/timerfd.h>
 #include "eventloop.h"
-#include "inputs.h"
-#include "outputs.h"
-#include "door.h"
-#include "structs.h"
+#include <door/inputs.h>
+#include <door/outputs.h>
+#include <door/door.h>
+#include <door/structs.h>
 
 class TimerHandler : public InputHandler
 {
 public:
-    TimerHandler(Inputs* inputs, Outputs* outputs, Door* door);
+    TimerHandler(Inputs* inputs, Outputs* outputs, Door* door); //Add ms parameter
     void hookup(Eventloop&);
     EventAction ready(int fd) override;
 

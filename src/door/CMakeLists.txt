@@ -47,12 +47,6 @@ set(DOOR_FILES
   motorLED.h 
   motorLED.cpp
 
-  eventloop.h
-  eventloop.cpp
-
-  timer-handler.h
-  timer-handler.cpp
-
 )
 
 add_subdirectory(utilities)

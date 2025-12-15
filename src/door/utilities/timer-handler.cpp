@@ -17,7 +17,7 @@ TimerHandler::TimerHandler(Inputs* inputs, Outputs* outputs, Door* door) {
         throw std::runtime_error("timerfd_create failed");
     }
     itimerspec spec{
-        .it_interval = {1, 0},   // periodic: every 1 second
+        .it_interval = {0, 1000000},   // periodic: every 1ms
         .it_value    = {1, 0},   // first expiration 1 second after start
     };
 
@@ -39,10 +39,9 @@ EventAction TimerHandler::ready(int fd)
         ssize_t n = read(_timer_fd, &expirations, sizeof(expirations));
 
         if (n != sizeof(expirations)) {
-            return EventAction::Continue;   // skip errors
+            return EventAction::Continue;  
         }
 
-        // TIMER EVENT OCCURRED → call cyclic logic
         events_t ev  = _inputs->get_events();
         output_t out = _door->cyclic(ev);
 

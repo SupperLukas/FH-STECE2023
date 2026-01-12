@@ -9,6 +9,11 @@ add_library(
     periodic-timer.h
     i2c.h
     i2c.cpp
+    i2c-interface.h
+    i2c-real.h
+    i2c-real.cpp
+    i2c-mock.h
+    i2c-mock.cpp
 )
 
 target_include_directories(

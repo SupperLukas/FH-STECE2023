@@ -27,7 +27,7 @@ GracefulTerminator::GracefulTerminator()
 
 GracefulTerminator::~GracefulTerminator()
 {
-    if (_fd == -1)
+    if (_fd != -1)
         close(_fd);
 }
 

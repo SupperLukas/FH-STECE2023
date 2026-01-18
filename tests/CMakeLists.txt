@@ -49,6 +49,19 @@ target_link_libraries(
 # )
 
 add_executable(
+  bmp280-unit-tests
+  bmp280-unit-test.cpp
+)
+
+target_link_libraries(
+  bmp280-unit-tests
+  PRIVATE
+  analog_stuff  
+  door
+  gtest_main
+)
+
+add_executable(
   input-switch-gpio-tests input-switch-gpio-tests.cpp
 )
 target_link_libraries(
@@ -119,6 +132,11 @@ target_link_libraries(
 add_test(
   NAME bmp280_test
   COMMAND bmp280_test
+)
+
+add_test(
+  NAME bmp280-unit-tests
+  COMMAND bmp280-unit-tests
 )
 
 add_test(

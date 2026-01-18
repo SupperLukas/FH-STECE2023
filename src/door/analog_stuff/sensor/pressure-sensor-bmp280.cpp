@@ -78,6 +78,10 @@ float BMP280::get_value() const {
     int32_t raw_pressure = (raw_data[0] << 12) | (raw_data[1] << 4) | (raw_data[2] >> 4);
     int32_t raw_temp     = (raw_data[3] << 12) | (raw_data[4] << 4) | (raw_data[5] >> 4);
 
+    if (raw_pressure == 0 && raw_temp == 0) {
+    throw std::runtime_error("Invalid BMP280 measurement data");
+    }
+
     // Temperature compensation (t_fine) according to datasheet
     int32_t var1 = (((raw_temp >> 3) - ((int32_t)_dig_T1 << 1)) * ((int32_t)_dig_T2)) >> 11;
     int32_t var2 = (((((raw_temp >> 4) - ((int32_t)_dig_T1)) *

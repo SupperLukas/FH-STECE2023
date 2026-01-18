@@ -13,6 +13,7 @@
 #include <door/analog_stuff/sensor/analog-sensor-event-generator.h> 
 #include <door/analog_stuff/sensor/analog-sensor-mock.h>          
 #include <door/analog_stuff/sensor/pressure-sensor-bmp280.h>
+#include <door/utilities/i2c-real.h>
 
 #include <door/motor/motor-mock.h>
 
@@ -26,6 +27,7 @@
 #include <door/utilities/periodic-timer.h>
 
 #include <door/utilities/timespec.h>
+
 
 // quit flag with atomic type
 static volatile sig_atomic_t quit = 0;
@@ -133,7 +135,9 @@ int main(int argc, char** argv)
         lightbarrier_open  = new InputSwitchGPIOSysfs(23);
 
         // Pressure Sensor
-        pressureSensor = new BMP280("/dev/i2c-1", 0x76); 
+        I2CReal* i2c = new I2CReal("/dev/i2c-1", 0x76);
+        pressureSensor = new BMP280(i2c);
+
 
         //motor = new MotorStepper("/dev/gpiochip0", 26, 17, "2000000", "1000000");
     }

@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "i2c-mock.h"
+#include <door/utilities/i2c-mock.h>
 #include <door/analog_stuff/sensor/pressure-sensor-bmp280.h>
 
 // Helpers

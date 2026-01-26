@@ -29,9 +29,9 @@ target_link_libraries(
   utilities
   gtest_main
 
-  input_output_switch
+  input
+  output
   motor
-  analog_stuff
 )
 add_test(
   NAME door-tests 
@@ -67,8 +67,9 @@ add_executable(
 target_link_libraries(
   bmp280-unit-tests
   PRIVATE
-  analog_stuff  
-  door
+
+  utilities
+  sensor
   gtest_main
 )
 

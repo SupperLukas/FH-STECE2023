@@ -31,6 +31,6 @@ target_include_directories(
 
 target_include_directories(
     utilities
-    PRIVATE
+    PUBLIC
     ${CMAKE_SOURCE_DIR}/src
 )

@@ -12,18 +12,16 @@ add_library(
 
 target_include_directories(
     input
-    PRIVATE
-    ${CMAKE_SOURCE_DIR}/src
-)
 
-target_include_directories(
-    input
-    INTERFACE
-    ${CMAKE_CURRENT_SOURCE_DIR}
+    PUBLIC
+
+    ${CMAKE_SOURCE_DIR}/src
 )
 
 target_link_libraries(
     input
+
     PUBLIC
+
     utilities
 )

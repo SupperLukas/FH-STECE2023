@@ -24,12 +24,8 @@ target_link_libraries(
 
 target_include_directories(
     statemachine
-    INTERFACE
-    ${CMAKE_CURRENT_SOURCE_DIR}
-)
 
-target_include_directories(
-    statemachine
-    PRIVATE
+    PUBLIC
+
     ${CMAKE_SOURCE_DIR}/src
 )

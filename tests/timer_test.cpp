@@ -52,3 +52,26 @@ TEST(timer_suite, timer_stop_twice)
     one_shot.stop();
     ASSERT_EQ(one_shot.isrunning(), false);  
 }
+
+TEST(timer_suite, expire)
+{
+    Eventloop loop;
+
+    bool expired = false;
+    OneShotTimer one_shot(TimeSpec(0,1),[&expired](){expired = true;});
+
+    one_shot.hookup(loop);
+
+    one_shot.start();
+
+    unsigned int nloops = 10000000;
+    while (!expired && nloops > 0) {
+        loop.run_one();
+        --nloops;
+    }
+
+    one_shot.stop();  // timer must not be running when dtor is called
+
+    if (nloops == 0)
+        FAIL();
+}

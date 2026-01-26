@@ -24,7 +24,6 @@ target_include_directories(
 
 target_link_libraries(
     input
-    PRIVATE utilities
-    PRIVATE motor
-    PRIVATE analog_stuff
+    PUBLIC
+    utilities
 )

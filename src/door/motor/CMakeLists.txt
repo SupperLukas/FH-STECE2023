@@ -13,7 +13,8 @@ add_library(
 
 target_link_libraries(
     motor 
-    PRIVATE input_output_switch
+    PUBLIC
+    output
 )
 
 target_include_directories(

@@ -2,7 +2,7 @@
 
 #include "motor.h"
 #include <string>
-#include "output-switch.h"
+#include <door/input_output_switch/output/output-switch.h>
 
 class MotorStepper : public Motor
 {

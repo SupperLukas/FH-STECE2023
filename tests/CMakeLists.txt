@@ -29,9 +29,9 @@ target_link_libraries(
   utilities
   gtest_main
 
-  input_output_switch
+  input
+  output
   motor
-  analog_stuff
 )
 add_test(
   NAME door-tests 
@@ -58,6 +58,20 @@ target_link_libraries(
 #   statemachine
 #   gtest_main
 # )
+
+add_executable(
+  bmp280-unit-tests
+  bmp280-unit-test.cpp
+)
+
+target_link_libraries(
+  bmp280-unit-tests
+  PRIVATE
+
+  utilities
+  sensor
+  gtest_main
+)
 
 add_executable(
   input-switch-gpio-tests input-switch-gpio-tests.cpp
@@ -161,6 +175,11 @@ target_link_libraries(
 add_test(
   NAME bmp280_test
   COMMAND bmp280_test
+)
+
+add_test(
+  NAME bmp280-unit-tests
+  COMMAND bmp280-unit-tests
 )
 
 add_test(
